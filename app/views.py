@@ -4,26 +4,77 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
-
-from app import app
-from flask import render_template, request, redirect, url_for
-
+import os
+from fileinput import filename
+from app import app, db
+from flask import flash, render_template, request, redirect, send_from_directory, url_for, session, abort
+from app import forms
+from flask_wtf.csrf import CSRFProtect
+from app.forms import PropForm
+from app.models import PropInfo
+from werkzeug.utils import secure_filename
+import psycopg2
 
 ###
 # Routing for your application.
 ###
+
+csrf = CSRFProtect(app)
 
 @app.route('/')
 def home():
     """Render website's home page."""
     return render_template('home.html')
 
-
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Shanara Watts")
 
+#Project 1
+
+@app.route('/properties/create', methods=['POST', 'GET'])
+def property():
+    form = PropForm()
+    if request.method == 'POST':
+        if form.validate_on_submit(): #Validate file upload on submit
+            title = form.title.data
+            des = form.description.data
+            rooms = form.rooms.data
+            bathrooms = form.bathrooms.data
+            price = form.price.data
+            location = form.location.data
+            propType = form.propType.data
+            photo = form.photo.data #Get file data and save to your uploads folder
+
+            filename = secure_filename(photo.filename)
+            photo.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
+
+            prop = PropInfo(title, des, rooms, bathrooms, price, location, propType, filename)
+            db.session.add(prop)
+            db.session.commit()
+
+            flash('Property has been saved', 'success')
+            return redirect(url_for('properties'))
+        else:
+            flash('Not uploaded')
+            return redirect(url_for('home'))
+    return render_template('propForm.html', form=form)
+
+@app.route("/properties")
+def properties():
+    props = PropInfo.query.all()
+    return render_template("properties.html", props=props)
+
+@app.route("/properties/<propertyid>")
+def getProp(propertyid):
+    prop = PropInfo.query.filter_by(id=propertyid).first()
+    return render_template("property.html", prop=prop)
+
+@app.route("/uploads/<filename>")
+def getImage(filename):
+    root = os.getcwd()
+    return send_from_directory(os.getcwd()+"/"+app.config['UPLOAD_FOLDER'],filename)
 
 ###
 # The functions below should be applicable to all Flask apps.

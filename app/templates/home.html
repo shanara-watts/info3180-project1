@@ -1,18 +1,7 @@
 {% extends "base.html" %}
 
-{% block css %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-{% endblock %}
-
 {% block main %}
-<div class="p-5 mb-4 bg-light rounded-3 border">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">Hello, world!</h1>
-    <p>This is a simple starter template for a Flask Application</p>
-  </div>
-</div>
-{% endblock %}
-
-{% block js %}
-<script src="{{ url_for('static', filename='js/app.min.js') }}" charset="utf-8"></script>
+<h1 class="page-header">Project 1</h1>
+<p class="lead">Use this starter template for Project 1.<br/>
+All you get are these files and mostly barebones HTML/CSS files.</p>
 {% endblock %}

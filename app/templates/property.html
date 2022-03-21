@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% include 'flash_message.html' %}
+
+<div class="dets">
+    <div class = "propItem">
+        <div id="pic">
+            <img class="propPhoto2" src="{{url_for('getImage',filename=prop.photo)}}">
+        </div>
+        
+        <h5 class = "title">{{prop.title}}</h5>
+        <div id = "propinfo">
+            <p class = "propprice">{{prop.price}}</p>
+            <p class = "proptype">{{prop.propType}}</p>
+        </div>
+
+        <br>
+        <br>
+
+
+        <p class = "type">{{prop.des}}</p>
+
+        <div>
+            <p class = "type"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL1JREFUSEvtldENwjAMRF83YAQ6AhPAJjBa2QQmYAQYgQ1ARnHllFLiNAEJke/knn1nKw2VT1NZn68AbqErL3z03ZjIxwC58URFT3VQHeC1r0gGU/kkAZbAOdeb8K4FLqphbRDxE7CYCbgCK4VYQAdsgSOws1UkAqVA0VgD+6ARbbJ6GLWYKK7XrMWP4m0HuQs2rCHS+U2A0/aX158yOIQJKAGQSdwMQ1bh3LCTNlkgf8Db/6BEyL2G9991w++8oyoZ5y0IWwAAAABJRU5ErkJggg=="/> {{prop.rooms}}</p>
+            <p class = "type"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARNJREFUSEvdlOGRAUEQhT8ROBkQgRMBIuAyIAMicRmQgbsMiAARuBCIgHpVPVtj3ezO7FKq9C+2ut/rftP9Gjw5Gk/G56UEbWABfNqUe2AO/KVMHZpA4DvgIwd2AnopJCGCH2AEbIGJkayAPvALjGOnCBGo0ybQ8brVVEf7r+9RESK4WHXtJXgvgo09YpS2JUnCGirHl8jp/giCDPs/groPe7MgPphbzRag31XCrfLZHalP4N7gC9ChVQkd4NoOdJB/A13s0g5JdpA6hWxF9qIppoAu/85NZWhdI5kBhwjfEaBqvg1cNc4g7wjUhaRSQZUQuKTJpg9tjJMrhSSTxS8qWslYPyrMe2+CFP2DuXVtobSJK3sjNBmX8EPwAAAAAElFTkSuQmCC"/>{{prop.bathrooms}}</p>
+        </div>
+        
+        <p class = "loc"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAbBJREFUSEu1le01REEQRO9GgAgQASJABIgAESASRIAIEAEiIANkQASc63Q7s+PNm7c/zJ+3Zz6qqqt6Zmf885j9Mz5TCNaAE2AH2AxBL8AjcAm8jYnsEVwE+BiGe85aG8YIVLkRB28AgZxzWMkpcFhUtDVE0iJI5Z9hTQLXGBJp1VLYJencGCLQ89fYpSrBnTuvMtAW/ZfkOfav15kMEaR6A1SR4AIsV+I+AAVIch125ZnfrUME6X2qvwP2gCfgKE4KuA3cA/tFFZ6dy2KI4CtAck2lelyWnzaq3nlHfe5nchGCFUAyRxK8x++FCOwKy68tcv44CK6iu9IiL+FD2Ojv0QwyMLvEwFWrt9pUDlvYDtImm8Eu875kTk2LDO02Dqa/kkhWPhWC5jPhdxU4AGyK0QpczANaYkVjQ8VaVubRJcgqDNUqMtyayLvhpfT7R32rixIkw/a72ygh74x3ZC7c3D/22KlKqwxXm7KD8mw2g2Gb0WCVvee6fMxKkhJc5a3HcNIfTk1iZWbUe2mbbTpkd0ni+iTwXsg1kSTZsrZm05Yp96DT+tOXeyFPR2rs/AZz92gZw5u8WQAAAABJRU5ErkJggg=="/>{{prop.location}}</p>
+        
+        <a id="bttn" class="btn btn-primary">Email Realtor</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% include 'flash_message.html' %}
+
+
+<div>
+    <h2> Properties</h2>
+    <ul class = "propGrid">
+        {% for prop in props %}
+
+        <li class = "propItem">
+            <img class="propPhoto" src="{{url_for('getImage',filename=prop.photo)}}">
+            <h5 class = "title">{{prop.title}}</h5>
+            <p class = "loc"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAbBJREFUSEu1le01REEQRO9GgAgQASJABIgAESASRIAIEAEiIANkQASc63Q7s+PNm7c/zJ+3Zz6qqqt6Zmf885j9Mz5TCNaAE2AH2AxBL8AjcAm8jYnsEVwE+BiGe85aG8YIVLkRB28AgZxzWMkpcFhUtDVE0iJI5Z9hTQLXGBJp1VLYJencGCLQ89fYpSrBnTuvMtAW/ZfkOfav15kMEaR6A1SR4AIsV+I+AAVIch125ZnfrUME6X2qvwP2gCfgKE4KuA3cA/tFFZ6dy2KI4CtAck2lelyWnzaq3nlHfe5nchGCFUAyRxK8x++FCOwKy68tcv44CK6iu9IiL+FD2Ojv0QwyMLvEwFWrt9pUDlvYDtImm8Eu875kTk2LDO02Dqa/kkhWPhWC5jPhdxU4AGyK0QpczANaYkVjQ8VaVubRJcgqDNUqMtyayLvhpfT7R32rixIkw/a72ygh74x3ZC7c3D/22KlKqwxXm7KD8mw2g2Gb0WCVvee6fMxKkhJc5a3HcNIfTk1iZWbUe2mbbTpkd0ni+iTwXsg1kSTZsrZm05Yp96DT+tOXeyFPR2rs/AZz92gZw5u8WQAAAABJRU5ErkJggg=="/>{{prop.location}}</p>
+            <p class = "price">{{prop.price}}</p>
+            <a class="btn btn-primary" class = "btn" href= "{{url_for('getProp',propertyid= prop.id)}}">View Property</a>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,3 +1,103 @@
 body {
     padding-top: 5rem;
+    background-color: #f1f5f6;
 }
+
+.container-fluid{
+    background-color: rgb(7, 195, 170);
+}
+
+#form{
+    background-color: white;
+    border: 1px solid #f1f5f6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 17px;
+    margin: 50px;
+    padding: 20px;
+}
+
+.propPhoto{
+    height:200px;
+    width:100%;    
+}
+
+.propPhoto2{
+    width:40%;
+    float: left;
+    display:block;
+    overflow: hidden;
+}
+
+.navbar, .navbar-expand-lg, .bg-primary, .fixed-top, .navbar-dark{
+    background-color: rgb(228, 236, 235);
+}
+
+.btn{
+    background-color: rgb(7, 195, 170);
+    width: 100%;
+}
+
+.loc{
+    color:grey;
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.title{
+    padding-left: 5px;
+}
+
+.price{
+    background-color: rgb(59, 50, 189);
+    width: 40%;
+    color: white;
+    text-align: center;
+    margin-left: 5px;
+    border-radius: 20px;
+}
+
+.propGrid {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 30px;
+    width: 80%;
+    padding-top: 30px;
+    vertical-align: top;
+}
+
+.propItem{
+    background-color: white;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.propprice{
+    background-color: rgb(59, 50, 189);
+    width: 10%;
+    color: white;
+    text-align: center;
+    margin-left: 5px;
+    border-radius: 20px;
+    float: left;
+}
+
+.proptype{
+    background-color: rgb(246, 250, 10);
+    width: 10%;
+    color: white;
+    text-align: center;
+    margin-left: 5px;
+    border-radius: 20px;
+    float: left;    
+}
+
+#bttn{
+    background-color: rgb(7, 195, 170);
+    width: 10%;
+    padding: 15px;   
+}
+
